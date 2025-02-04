@@ -4,11 +4,11 @@ CREATE DATABASE youdemyMvc;
 
 create type user_role as enum ('Admin', 'Étudiant', 'Enseignant');
 
-create type compte_status as enum ('Actif', 'Inactif', 'Suspendu');
+create type compte_status as enum ('actif', 'inactif', 'suspendu');
 
 create type cours_contenu_type as enum ('Vidéo', 'Document');
 
-create type cours_status as enum ('En attente', 'Publié', 'Rejeté');
+CREATE TYPE cours_status AS ENUM ('en_attente', 'publie', 'rejete');
 
 CREATE TABLE role (
     id_role serial primary key,
@@ -21,7 +21,7 @@ CREATE TABLE usersite (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL UNIQUE,
     id_role INT NOT NULL,
-    statut compte_status DEFAULT 'Actif', 
+    statut compte_status DEFAULT 'actif', 
     is_approved BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_role) REFERENCES role(id_role)
@@ -48,7 +48,7 @@ CREATE TABLE cours (
     id_usersite INT NOT NULL, 
     id_categorie INT,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    statut cours_status DEFAULT 'En attente', 
+    statut cours_status DEFAULT 'en_attente', 
     duree FLOAT NULL,
     nb_pages INT NULL,
     FOREIGN KEY (id_usersite) REFERENCES usersite(id_usersite) ON DELETE CASCADE,
@@ -81,9 +81,9 @@ CREATE TABLE inscription (
 -- Insertion
 
 INSERT INTO role (name_user) VALUES 
-('Admin'),
-('Étudiant'),
-('Enseignant');
+(CAST('Admin' AS user_role)),
+(CAST('Étudiant' AS user_role)),
+(CAST('Enseignant' AS user_role));
 
 
 INSERT INTO categorie (nom, image_url)
@@ -98,16 +98,16 @@ VALUES
 -- Développement Web (id_categorie = 1)
 INSERT INTO cours (titre, description, image_url, contenu, contenu_type, id_usersite, id_categorie, statut)
 VALUES
-    ('HTML Basics', 'Apprendre les bases de HTML.', 'https://lenadesign.org/wp-content/uploads/2019/12/html-basic.jpg', 'Introduction au HTML pour débutants.', 'Document', 20, 1, 'publie'),
-    ('CSS Essentials', 'Maîtriser le CSS pour le design web.', 'https://cdn.sbspathways.umass.edu/wp-content/uploads/sites/105/2023/02/b51051f8035604eebd10f3374a5f2b43-1592866798214.jpg', 'https://youtu.be/OEV8gMkCHXQ?si=6nLsuZr5pE1UVbSx', 'Vidéo', 24, 1, 'publie'),
-    ('JavaScript pour Débutants', 'Les bases de la programmation en JavaScript.', 'https://img-c.udemycdn.com/course/750x422/4885020_8f0c_2.jpg', 'https://youtu.be/v3Ho7QVaTXM?si=JM8rJ2tI-76Qo4ZK', 'Vidéo', 25, 1, 'publie'),
-    ('Responsive Web Design', 'Créer des sites adaptables à tous les écrans.', 'https://miro.medium.com/v2/resize:fit:2000/1*qF8LfAwUhl57g9T0BVvVdg.jpeg', 'Techniques de conception responsive.', 'Document', 26, 1, 'publie'),
-    ('Bootstrap Framework', 'Utilisation de Bootstrap pour le design rapide.', 'https://d1le3ohiuslpz1.cloudfront.net/skillcrush/wp-content/uploads/2023/08/What-is-Bootstrap-2.png', 'https://youtu.be/MyCvTSjkD74?si=eU74-v6NJ5ql34UB', 'Vidéo', 27, 1, 'publie'),
-    ('SEO Basics', 'Introduction au SEO pour les sites web.', 'https://cdn2.hubspot.net/hubfs/6671704/Page-001-9.jpg', 'Optimisation pour les moteurs de recherche.', 'Document', 28, 1, 'publie'),
-    ('PHP pour Débutants', 'Introduction au langage PHP.', 'https://www.agmwebhosting.com/blog/wp-content/uploads/2018/08/PHP-introduction.png', 'https://youtu.be/Mz57ncVpHaM?si=LkIOeIkS3CTrY0t9', 'Vidéo', 20, 1, 'publie'),
-    ('Laravel Essentials', 'Apprendre Laravel pour les projets web.', 'https://miro.medium.com/v2/resize:fit:1080/1*hj4o11jY1Bk8zKDSO7WgMw.png', 'Framework Laravel pour débutants.', 'Document', 24, 1, 'publie'),
-    ('Web Security', 'Sécuriser vos applications web.', 'https://cwatch.comodo.com/blog/wp-content/uploads/2020/05/good-website-security-plan.jpg', 'https://youtu.be/shQEXpUwaIY?si=0p7TbquofQ_VA_Vf', 'Vidéo', 25, 1, 'publie'),
-    ('Git et GitHub', 'Gestion de projets avec Git et GitHub.', 'https://www.biteinteractive.com/wp-content/uploads/2021/05/git-vs-github.png', 'Collaboration avec Git.', 'Document', 26, 1, 'publie');
+    ('HTML Basics', 'Apprendre les bases de HTML.', 'https://lenadesign.org/wp-content/uploads/2019/12/html-basic.jpg', 'https://perso.univ-rennes1.fr/virginie.sans/l2pw/UElibre_Internet.pdf', 'Document', 1, 1, 'publie'),
+    ('CSS Essentials', 'Maîtriser le CSS pour le design web.', 'https://cdn.sbspathways.umass.edu/wp-content/uploads/sites/105/2023/02/b51051f8035604eebd10f3374a5f2b43-1592866798214.jpg', 'https://youtu.be/OEV8gMkCHXQ?si=6nLsuZr5pE1UVbSx', 'Vidéo', 2, 1, 'publie'),
+    ('JavaScript pour Débutants', 'Les bases de la programmation en JavaScript.', 'https://img-c.udemycdn.com/course/750x422/4885020_8f0c_2.jpg', 'https://youtu.be/v3Ho7QVaTXM?si=JM8rJ2tI-76Qo4ZK', 'Vidéo', 3, 1, 'publie'),
+    ('Responsive Web Design', 'Créer des sites adaptables à tous les écrans.', 'https://miro.medium.com/v2/resize:fit:2000/1*qF8LfAwUhl57g9T0BVvVdg.jpeg', 'Techniques de conception responsive.', 'Document', 4, 1, 'publie'),
+    ('Bootstrap Framework', 'Utilisation de Bootstrap pour le design rapide.', 'https://d1le3ohiuslpz1.cloudfront.net/skillcrush/wp-content/uploads/2023/08/What-is-Bootstrap-2.png', 'https://youtu.be/MyCvTSjkD74?si=eU74-v6NJ5ql34UB', 'Vidéo', 5, 1, 'publie'),
+    ('SEO Basics', 'Introduction au SEO pour les sites web.', 'https://cdn2.hubspot.net/hubfs/6671704/Page-001-9.jpg', 'Optimisation pour les moteurs de recherche.', 'Document', 6, 1, 'publie'),
+    ('PHP pour Débutants', 'Introduction au langage PHP.', 'https://www.agmwebhosting.com/blog/wp-content/uploads/2018/08/PHP-introduction.png', 'https://youtu.be/Mz57ncVpHaM?si=LkIOeIkS3CTrY0t9', 'Vidéo', 1, 1, 'publie'),
+    ('Laravel Essentials', 'Apprendre Laravel pour les projets web.', 'https://miro.medium.com/v2/resize:fit:1080/1*hj4o11jY1Bk8zKDSO7WgMw.png', 'Framework Laravel pour débutants.', 'Document', 2, 1, 'publie'),
+    ('Web Security', 'Sécuriser vos applications web.', 'https://cwatch.comodo.com/blog/wp-content/uploads/2020/05/good-website-security-plan.jpg', 'https://youtu.be/shQEXpUwaIY?si=0p7TbquofQ_VA_Vf', 'Vidéo', 3, 1, 'publie'),
+    ('Git et GitHub', 'Gestion de projets avec Git et GitHub.', 'https://www.biteinteractive.com/wp-content/uploads/2021/05/git-vs-github.png', 'Collaboration avec Git.', 'Document', 4, 1, 'publie');
 
 
 
