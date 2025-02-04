@@ -30,6 +30,6 @@ class Database {
 
 
 
-$j = (new Database())->getConnection();
+// $j = (new Database())->getConnection();
 // echo "dd";
 ?>
