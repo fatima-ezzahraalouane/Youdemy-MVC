@@ -1,9 +1,9 @@
 <?php
 
-require_once '../../BackEnd/config/Database.php';
-require_once '../../BackEnd/classes/Admin.php';
-require_once '../../BackEnd/classes/Etudiant.php';
-require_once '../../BackEnd/classes/Enseignant.php';
+require_once __DIR__ . '../../config/Database.php';
+require_once __DIR__ . '../../models/Admin.php';
+require_once __DIR__ . '../../models/Etudiant.php';
+require_once __DIR__ . './../models/Enseignant.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     $username = $_POST['username'];
@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     <meta name="format-detection" content="telephone=no">
 
     <!-- FAVICONS ICON ============================================= -->
-    <link rel="icon" href="../assets/images/youdemy2.png" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/youdemy2.png" />
+    <link rel="icon" href="../../public/assets/images/youdemy2.png" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../public/assets/images/youdemy2.png" />
 
     <!-- PAGE TITLE HERE ============================================= -->
     <title>YOUDEMY FATIMA-EZZAHRA</title>
@@ -72,17 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
 	<![endif]-->
 
     <!-- All PLUGINS CSS ============================================= -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/assets.css">
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/assets.css">
 
     <!-- TYPOGRAPHY ============================================= -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/typography.css">
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/typography.css">
 
     <!-- SHORTCODES ============================================= -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/shortcodes/shortcodes.css">
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/shortcodes/shortcodes.css">
 
     <!-- STYLESHEETS ============================================= -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-    <link class="skin" rel="stylesheet" type="text/css" href="../assets/css/color/color-1.css">
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/style.css">
+    <link class="skin" rel="stylesheet" type="text/css" href="../../public/assets/css/color/color-1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -152,8 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     <div class="page-wraper">
         <div id="loading-icon-bx"></div>
         <div class="account-form">
-            <div class="account-head" style="background-image:url(../assets/images/background/bg2.jpg);">
-                <a href="index.php"><img src="../assets/images/youdemy.png" class="w-50" alt="icon"></a>
+            <div class="account-head" style="background-image:url(../../public/assets/images/background/bg2.jpg);">
+                <a href="indeex.php"><img src="../../public/assets/images/youdemy.png" class="w-50" alt="icon"></a>
             </div>
             <div class="account-form-inner">
                 <div class="account-container">
@@ -299,21 +299,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     </script>
 
     <!-- External JavaScripts -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/vendors/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/vendors/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
-    <script src="../assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
-    <script src="../assets/vendors/magnific-popup/magnific-popup.js"></script>
-    <script src="../assets/vendors/counter/waypoints-min.js"></script>
-    <script src="../assets/vendors/counter/counterup.min.js"></script>
-    <script src="../assets/vendors/imagesloaded/imagesloaded.js"></script>
-    <script src="../assets/vendors/masonry/masonry.js"></script>
-    <script src="../assets/vendors/masonry/filter.js"></script>
-    <script src="../assets/vendors/owl-carousel/owl.carousel.js"></script>
-    <script src="../assets/js/functions.js"></script>
-    <script src="../assets/js/contact.js"></script>
-    <script src='../assets/vendors/switcher/switcher.js'></script>
+    <script src="../../public/assets/js/jquery.min.js"></script>
+    <script src="../../public/assets/vendors/bootstrap/js/popper.min.js"></script>
+    <script src="../../public/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../public/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="../../public/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+    <script src="../../public/assets/vendors/magnific-popup/magnific-popup.js"></script>
+    <script src="../../public/assets/vendors/counter/waypoints-min.js"></script>
+    <script src="../../public/assets/vendors/counter/counterup.min.js"></script>
+    <script src="../../public/assets/vendors/imagesloaded/imagesloaded.js"></script>
+    <script src="../../public/assets/vendors/masonry/masonry.js"></script>
+    <script src="../../public/assets/vendors/masonry/filter.js"></script>
+    <script src="../../public/assets/vendors/owl-carousel/owl.carousel.js"></script>
+    <script src="../../public/assets/js/functions.js"></script>
+    <script src="../../public/assets/js/contact.js"></script>
+    <script src='../../public/assets/vendors/switcher/switcher.js'></script>
 </body>
 
 </html>
