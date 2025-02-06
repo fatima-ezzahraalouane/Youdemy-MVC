@@ -1,5 +1,5 @@
 <?php
-require_once '../../BackEnd/config/Database.php';
+require_once __DIR__ . '../../config/Database.php';
 
 abstract class Cours
 {
