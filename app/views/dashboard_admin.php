@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../../BackEnd/classes/Admin.php';
-require_once '../../BackEnd/config/Database.php';
+require_once __DIR__ . '../../models/Admin.php';
+require_once __DIR__ . '../../config/Database.php';
 
 
 // Check if admin is logged in
