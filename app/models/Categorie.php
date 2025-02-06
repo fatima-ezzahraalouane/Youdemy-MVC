@@ -1,5 +1,5 @@
 <?php
-require_once '../../BackEnd/config/Database.php';
+require_once __DIR__ . '../../config/Database.php';
 
 class Categorie
 {
@@ -59,6 +59,11 @@ public function getTotalCourses()
 {
     return $this->total_courses;
 }
+
+// public function getAllCategories() {
+//     $query = "SELECT * FROM categorie";
+//     return $this->pdo->fetchAll($query);
+// }
 
     public static function categorieExiste($nom)
     {
