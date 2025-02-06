@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once '../config/Database.php';
-require_once '../classes/Usersite.php';
+require_once __DIR__ . '../../config/Database.php';
+require_once __DIR__ . '../../models/Usersite.php';
 
 // Connexion à la base de données
 $database = new Database();
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
               // Redirigez en fonction du rôle de l'utilisateur
         if ($user['id_role'] == 1) {
-            header("Location: ../../FrontEnd/pages/dashboard_admin.php");
+            header("Location: ../views/dashboard_admin.php");
         } elseif ($user['id_role'] == 2) {
             header("Location: ../../FrontEnd/pages/accueil.php");
         } elseif ($user['id_role'] == 3) {
